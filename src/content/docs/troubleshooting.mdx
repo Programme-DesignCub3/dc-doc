@@ -1,0 +1,71 @@
+---
+title: "Troubleshooting Guide"
+description: "Common issues and their solutions to speed up development."
+---
+
+## Development Environment
+
+### Node.js Issues
+
+#### Error: ENOSPC
+
+```bash
+# Solution
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+```
+
+#### Package Installation Fails
+
+1. Clear npm cache
+2. Delete node_modules
+3. Delete package-lock.json
+4. Run npm install
+
+## Build Problems
+
+### Common Build Errors
+
+#### TypeScript Errors
+
+```typescript
+// Error: Type 'string' is not assignable to type 'number'
+// Solution: Add proper type annotations
+const count: number = 5;
+```
+
+#### Module Not Found
+
+1. Check import path
+2. Verify package installation
+3. Clear build cache
+
+## Runtime Issues
+
+### Memory Leaks
+
+#### React Component Memory Leak
+
+```tsx
+// Problem
+useEffect(() => {
+  const interval = setInterval(() => {
+    // Do something
+  }, 1000);
+}, []); // Missing cleanup
+
+// Solution
+useEffect(() => {
+  const interval = setInterval(() => {
+    // Do something
+  }, 1000);
+  return () => clearInterval(interval);
+}, []);
+```
+
+### Performance Issues
+
+1. Check bundle size
+2. Profile with React DevTools
+3. Analyze render cycles
+4. Review network calls

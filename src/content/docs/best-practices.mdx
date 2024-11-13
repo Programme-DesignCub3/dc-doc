@@ -1,0 +1,83 @@
+---
+title: "Best Practices"
+description: "Coding standards, architecture patterns, and development best practices."
+---
+
+## Code Organization
+
+### File Structure
+
+- One component per file
+- Group related files in feature folders
+- Keep files small and focused
+- Use index files for clean exports
+
+### Naming Conventions
+
+- Components: PascalCase
+- Functions: camelCase
+- Constants: UPPER_SNAKE_CASE
+- Files: kebab-case
+
+## Architecture Patterns
+
+### Component Design
+
+```tsx
+// Good
+function UserProfile({ user, onUpdate }) {
+  return (
+    <div>
+      <h1>{user.name}</h1>
+      <button onClick={onUpdate}>Update</button>
+    </div>
+  );
+}
+
+// Avoid
+function UserProfile(props) {
+  const [state, setState] = useState();
+  // Too many responsibilities
+}
+```
+
+### State Management
+
+- Use local state for UI-only state
+- Use global state for shared data
+- Keep state minimal and normalized
+- Document state shape
+
+## Performance
+
+### Optimization Techniques
+
+1. Lazy loading
+2. Code splitting
+3. Memoization
+4. Virtual scrolling
+5. Image optimization
+
+### Common Pitfalls
+
+- Avoid premature optimization
+- Don't overuse global state
+- Prevent unnecessary re-renders
+- Watch bundle size
+
+## Security
+
+### Best Practices
+
+1. Input validation
+2. Output encoding
+3. HTTPS everywhere
+4. Secure headers
+5. Regular updates
+
+### Common Vulnerabilities
+
+- XSS prevention
+- CSRF protection
+- SQL injection
+- Authentication bypass

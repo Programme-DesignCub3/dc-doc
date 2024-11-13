@@ -1,0 +1,73 @@
+---
+title: "Testing Guidelines"
+description: "Learn about our testing strategies and quality assurance processes."
+---
+
+## Testing Philosophy
+
+Our testing approach follows the testing pyramid:
+
+1. Unit Tests (70%)
+2. Integration Tests (20%)
+3. E2E Tests (10%)
+
+## Unit Testing
+
+### Component Testing
+
+```tsx
+import { render, screen } from '@testing-library/react';
+import { Button } from './Button';
+
+test('renders button with text', () => {
+  render(<Button>Click me</Button>);
+  expect(screen.getByText('Click me')).toBeInTheDocument();
+});
+```
+
+### Hook Testing
+
+```tsx
+import { renderHook, act } from '@testing-library/react-hooks';
+import useCounter from './useCounter';
+
+test('increments counter', () => {
+  const { result } = renderHook(() => useCounter());
+  act(() => {
+    result.current.increment();
+  });
+  expect(result.current.count).toBe(1);
+});
+```
+
+## Integration Testing
+
+### API Testing
+
+```typescript
+describe('UserAPI', () => {
+  it('fetches user data', async () => {
+    const user = await UserAPI.getUser(1);
+    expect(user).toEqual({
+      id: 1,
+      name: 'John Doe'
+    });
+  });
+});
+```
+
+## E2E Testing
+
+### Cypress Tests
+
+```typescript
+describe('Login Flow', () => {
+  it('successfully logs in', () => {
+    cy.visit('/login');
+    cy.get('[data-testid="email"]').type('user@example.com');
+    cy.get('[data-testid="password"]').type('password123');
+    cy.get('[data-testid="submit"]').click();
+    cy.url().should('include', '/dashboard');
+  });
+});
+```

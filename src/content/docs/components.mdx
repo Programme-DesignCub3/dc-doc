@@ -1,0 +1,85 @@
+---
+title: "Component Library"
+description: "Explore our shared components and design system."
+---
+
+## Design System
+
+### Colors
+
+```css
+--primary: #5E72E4;
+--primary-light: #86A8FF;
+--primary-dark: #172554;
+--success: #2DCE89;
+--warning: #FB6340;
+--danger: #F5365C;
+```
+
+### Typography
+
+```css
+--font-sans: system-ui, sans-serif;
+--font-mono: 'SF Mono', monospace;
+```
+
+## Core Components
+
+### Button
+
+```tsx
+<Button
+  variant="primary" // primary, secondary, ghost
+  size="md" // sm, md, lg
+  disabled={false}
+>
+  Click me
+</Button>
+```
+
+### Input
+
+```tsx
+<Input
+  type="text"
+  placeholder="Enter value..."
+  error="Invalid input"
+  onChange={(e) => handleChange(e)}
+/>
+```
+
+### Card
+
+```tsx
+<Card
+  title="Card Title"
+  subtitle="Optional subtitle"
+  footer={<Button>Action</Button>}
+>
+  Card content goes here
+</Card>
+```
+
+## Form Components
+
+### Select
+
+```tsx
+<Select
+  options={[
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' }
+  ]}
+  onChange={(value) => handleSelect(value)}
+/>
+```
+
+### Checkbox
+
+```tsx
+<Checkbox
+  label="Remember me"
+  checked={isChecked}
+  onChange={(checked) => handleCheck(checked)}
+/>
+```

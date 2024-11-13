@@ -1,0 +1,69 @@
+---
+title: "Development Workflows"
+description: "Learn about our git workflow, CI/CD pipelines, and deployment processes."
+---
+
+## Git Workflow
+
+We follow a trunk-based development workflow with feature branches:
+
+### Branch Naming
+
+- Feature branches: `feature/description-of-feature`
+- Bug fixes: `fix/description-of-bug`
+- Hotfixes: `hotfix/description-of-issue`
+
+### Commit Messages
+
+We follow the Conventional Commits specification:
+
+```bash
+feat: add new feature
+fix: resolve bug
+docs: update documentation
+style: format code
+refactor: restructure code
+test: add tests
+chore: update dependencies
+```
+
+## CI/CD Pipeline
+
+Our continuous integration and deployment pipeline ensures code quality and reliable deployments:
+
+### Pull Request Checks
+
+1. Linting
+2. Type checking
+3. Unit tests
+4. Integration tests
+5. Build verification
+
+### Deployment Stages
+
+1. Development (automatic)
+2. Staging (automatic with approval)
+3. Production (manual trigger)
+
+## Code Review Process
+
+Guidelines for effective code reviews:
+
+1. Review within 24 hours
+2. Focus on:
+   - Code quality
+   - Test coverage
+   - Performance
+   - Security
+3. Use constructive feedback
+4. Verify changes locally
+
+## Release Process
+
+Steps for releasing new versions:
+
+1. Version bump
+2. Changelog update
+3. Release notes
+4. Tag creation
+5. Deployment verification

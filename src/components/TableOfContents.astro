@@ -1,0 +1,29 @@
+---
+interface TocItem {
+  id: string;
+  text: string;
+  level: number;
+}
+
+interface Props {
+  toc: TocItem[];
+}
+
+const { toc } = Astro.props;
+---
+
+<nav class="sticky top-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700/50">
+  <h2 class="text-lg font-semibold text-white mb-4">Table of Contents</h2>
+  <ul class="space-y-2">
+    {toc.map((item) => (
+      <li style={`margin-left: ${(item.level - 2) * 1}rem`}>
+        <a
+          href={`#${item.id}`}
+          class="text-slate-300 hover:text-primary-light block py-1 border-l-2 border-transparent hover:border-primary-light pl-3 transition-colors"
+        >
+          {item.text}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
