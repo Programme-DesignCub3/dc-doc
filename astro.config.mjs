@@ -8,7 +8,7 @@ import pagefind from "astro-pagefind";
 
 export default defineConfig({
   site: "https://Programme-DesignCub3.github.io",
-  base: "dc-doc",
+  base: "/dc-doc",
   build: {
     format: "file",
   },
