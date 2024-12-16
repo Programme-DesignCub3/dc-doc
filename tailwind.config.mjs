@@ -1,48 +1,48 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: 'rgb(94, 114, 228)',
-          light: 'rgb(134, 168, 255)',
-          dark: 'rgb(23, 37, 84)'
-        }
+          DEFAULT: "rgb(94, 114, 228)",
+          light: "rgb(134, 168, 255)",
+          dark: "rgb(23, 37, 84)",
+        },
       },
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: 'none',
-            color: 'rgb(203 213 225)',
+            maxWidth: "none",
+            color: "rgb(203 213 225)",
             h1: {
-              color: 'white',
+              color: "white",
             },
             h2: {
-              color: 'white',
+              color: "white",
             },
             h3: {
-              color: 'white',
+              color: "white",
             },
             h4: {
-              color: 'white',
+              color: "white",
             },
             strong: {
-              color: 'white',
+              color: "white",
             },
             code: {
-              color: 'rgb(134, 168, 255)',
+              color: "rgb(134, 168, 255)",
             },
-            'code::before': {
+            "code::before": {
               content: '""',
             },
-            'code::after': {
+            "code::after": {
               content: '""',
             },
             a: {
-              color: 'rgb(134, 168, 255)',
-              '&:hover': {
-                color: 'rgb(94, 114, 228)',
+              color: "rgb(134, 168, 255)",
+              "&:hover": {
+                color: "rgb(94, 114, 228)",
               },
             },
           },
@@ -50,7 +50,5 @@ export default {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-}
+  plugins: [require("tailwindcss-motion"), require("@tailwindcss/typography")],
+};
